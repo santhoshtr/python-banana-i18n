@@ -118,7 +118,7 @@ class BananaI18n:
 
         return re.sub(PLURAL_PATTERN, replace_plural, message)
 
-    def translate(self, lang, twtitle, parameters: Mapping = None,
+    def translate(self, lang: str, twtitle: str, parameters: Mapping = None,
                   fallback=True) -> Union[str, None]:
         """Return the most appropriate translation from a translation dict.
 
