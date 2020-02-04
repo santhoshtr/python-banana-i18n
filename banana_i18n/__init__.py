@@ -71,7 +71,7 @@ class BananaI18n:
                     "Length of parameter does not match PLURAL occurrences in {}"
                     .format(message)
                 )
-            if not isinstance(num, int):
+            if not isinstance(num, (int, float)):
                 raise TypeError(
                     'type {0} for value {1} ({2})'
                     .format(type(num), selector, num))
