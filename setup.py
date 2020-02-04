@@ -4,6 +4,7 @@ setup(
     name='banana-i18n',
     version='0.1.0',
     packages=['banana_i18n'],
+    package_data={'banana_i18n': ['py.typed']},
     python_requires='>=3.5',
     url='https://git.legoktm.com/legoktm/banana-i18n',
     include_package_data=True,
