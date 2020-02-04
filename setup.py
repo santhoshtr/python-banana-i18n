@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='banana-i18n',
-    version='0.1.1',
+    version='0.1.2',
     packages=['banana_i18n'],
     package_data={'banana_i18n': ['py.typed']},
     python_requires='>=3.5',
