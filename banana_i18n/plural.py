@@ -5,6 +5,9 @@
 #
 # Distributed under the terms of the MIT license.
 #
+from typing import Callable, Dict, Union
+
+PluralRule = Dict[str, Union[int, Callable]]
 
 
 plural_rules = {
@@ -152,4 +155,11 @@ plural_rules = {
     'zh-hans': {'nplurals': 1, 'plural': 0},
     'zh-hant': {'nplurals': 1, 'plural': 0},
     'zh-tw': {'nplurals': 1, 'plural': 0},
-}
+}  # type: Dict[str, PluralRule]
+
+
+def plural_rule(lang: str) -> PluralRule:
+    try:
+        return plural_rules[lang]
+    except KeyError:
+        return plural_rules['_default']

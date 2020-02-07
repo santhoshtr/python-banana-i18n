@@ -18,7 +18,7 @@ from pathlib import Path
 import re
 from typing import DefaultDict, Dict, List, Union
 
-from .plural import plural_rules  # type: dict
+from .plural import plural_rule
 
 PLURAL_PATTERN = r'{{PLURAL:(?:%\()?([^\)]*?)(?:\)d)?\|(.*?)}}'
 
@@ -107,10 +107,7 @@ class BananaI18n:
 
         assert isinstance(parameters, Mapping), \
             'parameters is not Mapping but {0}'.format(type(parameters))
-        try:
-            rule = plural_rules[lang]
-        except KeyError:
-            rule = plural_rules['_default']
+        rule = plural_rule(lang)
         plural_value = rule['plural']
         if not callable(plural_value):
             assert rule['nplurals'] == 1
