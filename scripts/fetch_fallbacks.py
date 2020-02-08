@@ -8,7 +8,7 @@ Fetch language fallback map from MediaWiki
 
 from collections import defaultdict
 import json
-import os
+from pathlib import Path
 import requests
 
 
@@ -32,8 +32,7 @@ def main():
             # Everything must fallback to en eventually
             mapping[lang].append('en')
 
-    path = os.path.join(os.path.dirname(os.path.dirname(__file__)),
-                        'banana_i18n/fallback.json')
+    path = Path(__file__).parent.parent / 'banana_i18n/fallback.json'
     with open(path, 'w') as f:
         json.dump(mapping, f, indent='    ')
     print('Updated {}'.format(path))
